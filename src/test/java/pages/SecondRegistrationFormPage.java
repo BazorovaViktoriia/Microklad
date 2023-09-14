@@ -9,9 +9,23 @@ import static com.codeborne.selenide.Selenide.$;
 public class SecondRegistrationFormPage {
 
     private TextInput companyName = new TextInput($(By.xpath("//*[@id=\"app\"]/section/div[1]/div[2]/div/div/div[2]/form/div/fieldset/fieldset/div/div/input"))); //
-    private TextInput job_title = new TextInput($(By.xpath("//*[@id=\"app\"]/section/div[1]/div[2]/div/div/div[2]/form/div/div[1]/div/div"))); // верно - переделай
+    private Button activityBtn = new Button($(By.xpath("/html/body/div/section/div[1]/div[2]/div/div/div[2]/form/div/div[2]/div/button[8]"))); // не сделано, можно закрыть форму не вводя должность
 
-    private TextInput phone = new TextInput($(By.name("//*[@id=\"app\"]/section/div[1]/div[2]/div/div/div[2]/form/div/div[2]/div/button[8]"))); // выбрать специфику деятельности
+    private Button buttonNext = new Button($(By.xpath("/html/body/div/section/div[1]/div[2]/div/div/div[2]/button[1]")));  // кнопка для выбора деятельности во второй форме
 
-    private Button avatarBtn = new Button($(By.className("entry-submit block w-full")));
+    public SecondRegistrationFormPage writeCompanyName(String str) {
+        companyName.sendKeys(str);
+        return this;
+    }
+
+    public SecondRegistrationFormPage clickBtnSelectActivity() {
+        activityBtn.click();
+        return this;
+    }
+
+    public SecondRegistrationFormPage clickBTNNext() {
+        buttonNext.click();
+        return this;
+    }
+
 }

@@ -21,7 +21,7 @@ public class FirstRegistrationFormPage {
     private TextInput password = new TextInput($(By.name("name_password")));
     private TextInput repeatPassword = new TextInput($(By.name("name_confirm_password")));
 
-    private Button entryBTN = new Button($(By.className("entry-submit block w-full")));
+    private Button entryBTN = new Button($(By.xpath("/html/body/div/section/div[1]/div[2]/form/div/button")));
 
     public FirstRegistrationFormPage writeFirstName(String str) {
         firstName.sendKeys(str);

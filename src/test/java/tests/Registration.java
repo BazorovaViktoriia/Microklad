@@ -4,16 +4,15 @@ import base.TestBase;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import pages.MainPage;
-import pages.FirstRegistrationFormPage;
+import pages.*;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * Class LoginPositiveTests
- *
+ * Class Registration
+ * <p>
  * Includes positive tests for authorizations
  */
 public class Registration extends TestBase {
@@ -24,51 +23,66 @@ public class Registration extends TestBase {
     private String e_mail = "forfront@mail.ru";
     private String password = "123Qwerty";
 
+    private String companyName = "Estelink";
 
+    private String address = "Санкт-Петербург, Московский пр-кт, д17";
 
-    FirstRegistrationFormPage page = new FirstRegistrationFormPage();
+    FirstRegistrationFormPage pageFirst = new FirstRegistrationFormPage();
+    SecondRegistrationFormPage pageSecond = new SecondRegistrationFormPage();
+    ThirdRegistrationFormPage pageThird = new ThirdRegistrationFormPage();
+    ForthRegistrationFormPage pageForth = new ForthRegistrationFormPage();
 
     @Test
     public void fillFormOfAuthorization() throws Exception {
         entranceToRegistrationForm()
                 .fillPersonalInfoForm()
-                .fillWorkingInformationForm();
+                .fillWorkingInformationForm()
+                .writeAddress()
+                .choiсeTheme();
+
+        assertEquals("https://dev.devselink.ru/myAccount", WebDriverRunner.getWebDriver().getCurrentUrl(), "URL не соответствует ожидаемому");
     }
 
     public Registration entranceToRegistrationForm() {
-
         MainPage mainPage = new MainPage();
         mainPage.clickRegistrationBtn();
         $(By.xpath("/html/body/div/section/div[1]/div[2]/form")).shouldBe(visible);
-        assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), "https://dev.devselink.ru/registration", "URL не соответствует ожидаемому");
+        assertEquals("https://dev.devselink.ru/registration", WebDriverRunner.getWebDriver().getCurrentUrl(), "URL не соответствует ожидаемому");
+
         return this;
     }
 
-
     public Registration fillPersonalInfoForm() throws Exception {
-        page.writeFirstName(first_Name)
+        pageFirst.writeFirstName(first_Name)
                 .writeLastName(last_Name)
                 .writePhoneNumber(phoneNumber)
                 .writeEmail(e_mail)
                 .writePassword(password)
-                .confirmPassword(password)
-                .clickEntryButton();
+                .confirmPassword(password);
 
         Thread.sleep(7000);
+        pageFirst.clickEntryButton();
         return this;
     }
 
     public Registration fillWorkingInformationForm() throws Exception {
-
-        page.writeFirstName(first_Name)
-                .writeLastName(last_Name)
-                .writePhoneNumber(phoneNumber)
-                .writeEmail(e_mail)
-                .writePassword(password)
-                .confirmPassword(password)
-                .clickEntryButton();
+        pageSecond.writeCompanyName(companyName)
+                .clickBtnSelectActivity();
 
         Thread.sleep(7000);
+        pageSecond.clickBTNNext();
+        return this;
+    }
+
+    public Registration writeAddress() throws Exception {
+        Thread.sleep(7000);
+        pageThird.clickButton();
+        return this;
+    }
+
+    public Registration choiсeTheme() throws Exception {
+        Thread.sleep(7000);
+        pageForth.clickentryBTN();
         return this;
     }
 }
