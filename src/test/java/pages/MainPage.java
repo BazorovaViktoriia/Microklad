@@ -15,9 +15,11 @@ import static com.codeborne.selenide.Selenide.$;
 public class MainPage {
 
     WebElement registretionBTN = $(By.xpath("/html/body/div/div/header/div[1]/article/button[2]"));
+    WebElement authorizationBTN = $(By.xpath("//*[@id=\"index\"]/header/div[1]/article/button[1]"));
 
     public void clickRegistrationBtn(){
         registretionBTN.click();
     }
+    public void clickAuthorizationBTN(){ authorizationBTN.click(); }
 
 }

@@ -2,30 +2,26 @@ package tests;
 
 import base.TestBase;
 import com.codeborne.selenide.WebDriverRunner;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.testng.annotations.Test;
 import pages.*;
+import properties.ConfigurationManager;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.Assert.assertEquals;
 
-/**
- * Class Registration
- * <p>
- * Includes positive tests for authorizations
- */
 public class Registration extends TestBase {
 
-    private String first_Name = "VI";
-    private String last_Name = "BazVik";
-    private String phoneNumber = "+79310000000";
-    private String e_mail = "forfront@mail.ru";
-    private String password = "123Qwerty";
+    private String first_Name = ConfigurationManager.configuration().first_Name();
+    private String last_Name = ConfigurationManager.configuration().last_Name();
+    private String phoneNumber = ConfigurationManager.configuration().phoneNumber();
+    private String e_mail = ConfigurationManager.configuration().e_mail();
+    private String password = ConfigurationManager.configuration().password_for_login();
 
-    private String companyName = "Estelink";
+    private String companyName = ConfigurationManager.configuration().companyName();
 
-    private String address = "Санкт-Петербург, Московский пр-кт, д17";
+    private String address = ConfigurationManager.configuration().address();
 
     FirstRegistrationFormPage pageFirst = new FirstRegistrationFormPage();
     SecondRegistrationFormPage pageSecond = new SecondRegistrationFormPage();
@@ -33,21 +29,25 @@ public class Registration extends TestBase {
     ForthRegistrationFormPage pageForth = new ForthRegistrationFormPage();
 
     @Test
-    public void fillFormOfAuthorization() throws Exception {
+    public void registrationCompany() throws Exception {
         entranceToRegistrationForm()
                 .fillPersonalInfoForm()
                 .fillWorkingInformationForm()
                 .writeAddress()
                 .choiсeTheme();
 
-        assertEquals("https://dev.devselink.ru/myAccount", WebDriverRunner.getWebDriver().getCurrentUrl(), "URL не соответствует ожидаемому");
+        assertEquals(ConfigurationManager.configuration().url_myAccount(),
+                WebDriverRunner.getWebDriver().getCurrentUrl(),
+                "URL не соответствует ожидаемому");
     }
 
     public Registration entranceToRegistrationForm() {
         MainPage mainPage = new MainPage();
         mainPage.clickRegistrationBtn();
         $(By.xpath("/html/body/div/section/div[1]/div[2]/form")).shouldBe(visible);
-        assertEquals("https://dev.devselink.ru/registration", WebDriverRunner.getWebDriver().getCurrentUrl(), "URL не соответствует ожидаемому");
+        assertEquals(ConfigurationManager.configuration().url_registration(),
+                WebDriverRunner.getWebDriver().getCurrentUrl(),
+                "URL не соответствует ожидаемому");
 
         return this;
     }
@@ -69,7 +69,7 @@ public class Registration extends TestBase {
         pageSecond.writeCompanyName(companyName)
                 .clickBtnSelectActivity();
 
-        Thread.sleep(7000);
+        Thread.sleep(4000);
         pageSecond.clickBTNNext();
         return this;
     }
