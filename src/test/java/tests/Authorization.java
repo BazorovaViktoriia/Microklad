@@ -2,6 +2,7 @@ package tests;
 
 import base.TestBase;
 import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.FirstAuthorizationPage;
@@ -26,6 +27,7 @@ public class Authorization extends TestBase {
                 "URL не соответствует ожидаемому");
     }
 
+    @Step("Открываем форму для входа по e-mail зарегистрированного пользователя")
     public Authorization entranceToRegistrationForm() throws Exception {
         page.clickAuthorizationBTN();
         sleep(1000);

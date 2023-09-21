@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;
@@ -16,11 +17,13 @@ public class FirstAuthorizationPage {
         return this;
     }
 
+    @Step("Вводим логин")
     public FirstAuthorizationPage writepassword(String str) {
         passwordInput.sendKeys(str);
         return this;
     }
 
+    @Step("Вводим пароль")
     public FirstAuthorizationPage clickEntryBTN() {
         entryBTN.click();
         return this;

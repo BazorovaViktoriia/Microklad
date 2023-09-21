@@ -2,6 +2,7 @@ package tests;
 
 import base.TestBase;
 import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.*;
@@ -41,6 +42,7 @@ public class Registration extends TestBase {
                 "URL не соответствует ожидаемому");
     }
 
+    @Step("Открываем форму регистрации")
     public Registration entranceToRegistrationForm() {
         MainPage mainPage = new MainPage();
         mainPage.clickRegistrationBtn();
@@ -52,6 +54,7 @@ public class Registration extends TestBase {
         return this;
     }
 
+    @Step("Заполняем информацию об основном пользователе")
     public Registration fillPersonalInfoForm() throws Exception {
         pageFirst.writeFirstName(first_Name)
                 .writeLastName(last_Name)
@@ -65,6 +68,7 @@ public class Registration extends TestBase {
         return this;
     }
 
+    @Step("Заполняем информацию о компании")
     public Registration fillWorkingInformationForm() throws Exception {
         pageSecond.writeCompanyName(companyName)
                 .clickBtnSelectActivity();
@@ -74,12 +78,14 @@ public class Registration extends TestBase {
         return this;
     }
 
+    @Step("Прописываем адрес компании")
     public Registration writeAddress() throws Exception {
         Thread.sleep(7000);
         pageThird.clickButton();
         return this;
     }
 
+    @Step("Выбираем тему")
     public Registration choiсeTheme() throws Exception {
         Thread.sleep(7000);
         pageForth.clickentryBTN();
