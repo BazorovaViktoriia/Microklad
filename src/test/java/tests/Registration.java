@@ -2,6 +2,8 @@ package tests;
 
 import base.TestBase;
 import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -29,6 +31,8 @@ public class Registration extends TestBase {
     ThirdRegistrationFormPage pageThird = new ThirdRegistrationFormPage();
     ForthRegistrationFormPage pageForth = new ForthRegistrationFormPage();
 
+    @Owner("Базорова Виктория")
+    @Description("Проверка регистрации компании на сайте")
     @Test
     public void registrationCompany() throws Exception {
         entranceToRegistrationForm()

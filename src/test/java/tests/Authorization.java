@@ -2,6 +2,8 @@ package tests;
 
 import base.TestBase;
 import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,9 +19,11 @@ public class Authorization extends TestBase {
     MainPage page = new MainPage();
     FirstAuthorizationPage authoPage = new FirstAuthorizationPage();
 
+    @Owner("Базорова Виктория")
+    @Description("Проверка авторизации на сайте с корректными логин и паролем")
     @Test
     public void authorizationPerson() throws Exception {
-        entranceToRegistrationForm().
+        entranceToRegistrationForm(page).
                 entranceByMail(mail, pass);
         sleep(1000);
         Assert.assertEquals(ConfigurationManager.configuration().url_myAccount(),
@@ -28,7 +32,7 @@ public class Authorization extends TestBase {
     }
 
     @Step("Открываем форму для входа по e-mail зарегистрированного пользователя")
-    public Authorization entranceToRegistrationForm() throws Exception {
+    public Authorization entranceToRegistrationForm(MainPage page) throws Exception {
         page.clickAuthorizationBTN();
         sleep(1000);
         Assert.assertEquals(ConfigurationManager.configuration().url_login(),
@@ -37,6 +41,7 @@ public class Authorization extends TestBase {
         return this;
     }
 
+    @Step("Заполняем форму для входа")
     public Authorization entranceByMail(String mail_str, String str) {
         authoPage.writemail(mail_str).
                 writepassword(str).

@@ -35,4 +35,13 @@ public interface ConfigurationProperties extends Config {
 
     @Config.Key("url_login")
     String url_login();
+
+    @Config.Key("url_sources")
+    String url_sources();
+
+    @Config.Key("sourceName")
+    String sourceName();
+
+    @Config.Key("sourceUTM")
+    String sourceUTM();
 }
