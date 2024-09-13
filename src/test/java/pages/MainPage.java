@@ -10,16 +10,16 @@ import static com.codeborne.selenide.Selenide.$;
  * Class MainPage
  *
  * Includes locators and methods for working with them
- * from the main Estelink page
+ * from the main microklad page
  */
 public class MainPage {
 
-    WebElement registretionBTN = $(By.xpath("/html/body/div/div/header/div[1]/article/button[2]"));
-    WebElement authorizationBTN = $(By.xpath("//*[@id=\"index\"]/header/div[1]/article/button[1]"));
+    WebElement getMoneyBTN = $(By.xpath("/html/body/div[2]/div[1]/div[2]/section[1]/div[2]/div/div/form/div/button/span[1]"));
 
-    public void clickRegistrationBtn(){
-        registretionBTN.click();
+
+    public void clickgetMoneyBTN(){
+        getMoneyBTN.click();
     }
-    public void clickAuthorizationBTN(){ authorizationBTN.click(); }
+
 
 }

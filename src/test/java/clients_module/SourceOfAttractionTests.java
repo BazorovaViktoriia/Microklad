@@ -19,19 +19,5 @@ public class SourceOfAttractionTests extends TestBase {
     Authorization autho = new Authorization();
     SourcesPage sources = new SourcesPage();
 
-    @Owner("Базорова Виктория")
-    @Description("Проверка создания нового источника привлечения")
-    @Test
-    public void createNewSource() throws Exception {
-        autho.entranceToRegistrationForm(new MainPage())
-                .entranceByMail(mail,pass);
-        sleep(1000);
-        open(ConfigurationManager.configuration().url_sources());
-       sources.createSourcesBTNclick().
-               writeSourceName(sourceName).
-               writeSourceUTM(sourceUTM).
-               saveBTNclick();
 
-       // здесь должна быть проверка окна /li /li
-    }
 }

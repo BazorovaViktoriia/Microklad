@@ -6,6 +6,9 @@ public interface ConfigurationProperties extends Config {
     @Config.Key("url")
     String url();
 
+    @Config.Key("reg_type")
+    String reg_type();
+
     @Config.Key("e_mail")
     String e_mail();
 
