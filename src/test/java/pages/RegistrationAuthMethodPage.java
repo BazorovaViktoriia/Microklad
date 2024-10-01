@@ -14,5 +14,4 @@ public class RegistrationAuthMethodPage {
         registrationBTN.click();
         return this;
     }
-
 }

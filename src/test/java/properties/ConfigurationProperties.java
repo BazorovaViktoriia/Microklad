@@ -9,42 +9,36 @@ public interface ConfigurationProperties extends Config {
     @Config.Key("reg_type")
     String reg_type();
 
+    @Config.Key("reg_step1")
+    String reg_step1();
+
     @Config.Key("e_mail")
     String e_mail();
-
-    @Config.Key("password_for_login")
-    String password_for_login();
-
     @Config.Key("phoneNumber")
     String phoneNumber();
 
-    @Config.Key("first_Name")
-    String first_Name();
+    @Config.Key("surname")
+    String surname();
+    @Config.Key("name")
+    String name();
+    @Config.Key("patronymic")
+    String patronymic();
 
-    @Config.Key("last_Name")
-    String last_Name();
+    @Config.Key("birthday")
+    String birthday();
+    @Config.Key("birthPlace")
+    String birthPlace();
 
-    @Config.Key("companyName")
-    String companyName();
+    @Config.Key("passportSeria")
+    String passportSeria();
+    @Config.Key("passportNumber")
+    String passportNumber();
+    @Config.Key("passportCode")
+    String passportCode();
+    @Config.Key("passportDate")
+    String passportDate();
 
     @Config.Key("address")
     String address();
 
-    @Config.Key("url_myAccount")
-    String url_myAccount();
-
-    @Config.Key("url_registration")
-    String url_registration();
-
-    @Config.Key("url_login")
-    String url_login();
-
-    @Config.Key("url_sources")
-    String url_sources();
-
-    @Config.Key("sourceName")
-    String sourceName();
-
-    @Config.Key("sourceUTM")
-    String sourceUTM();
 }

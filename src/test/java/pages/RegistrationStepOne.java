@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 /**
  * Class RegistrationStepOne
- *
  * Includes person's info - passport, contact, address
  */
 public class RegistrationStepOne {
@@ -20,38 +19,76 @@ public class RegistrationStepOne {
     private TextInput patronymic = new TextInput($(By.name("name3")));
     private TextInput birthday = new TextInput($(By.name("birthday")));
     private TextInput birthPlace = new TextInput($(By.name("birth_place")));
-    private TextInput passportSeria = new TextInput($(By.name("passport_s")));
+    private TextInput passportSeries = new TextInput($(By.name("passport_s")));
     private TextInput passportNumber = new TextInput($(By.name("passport_n")));
+    private TextInput passportCode = new TextInput($(By.name("passport_code")));
+    private TextInput passportDate = new TextInput($(By.name("passport_date")));
+    private TextInput address = new TextInput($(By.id("address")));
 
+    private Button nextBTN = new Button($(By.className("btn full")));
 
-
-    private TextInput firstName = new TextInput($(By.name("name_first_name")));
-    private TextInput lastName = new TextInput($(By.name("name_last_name")));
-
-    private Button neatBTN = new Button($(By.xpath("//*[@id=\"step\"]/div[3]/div[1]/div/div/div[2]/button")));
-
-    public RegistrationStepOne writeFirstName(String str) {
-        firstName.sendKeys(str);
+    public RegistrationStepOne writePhone(String phoneStr) {
+        phone.sendKeys(phoneStr);
         return this;
     }
 
-    public RegistrationStepOne writeLastName(String lastStr) {
-        lastName.sendKeys(lastStr);
+    public RegistrationStepOne writeEmail(String emailStr) {
+        email.sendKeys(emailStr);
         return this;
     }
 
-    public RegistrationStepOne writePhoneNumber(String phoneNumber) {
-        phone.sendKeys(phoneNumber);
+    public RegistrationStepOne writeSurname(String surnameStr) {
+        surname.sendKeys(surnameStr);
         return this;
     }
 
-    public RegistrationStepOne writeEmail(String e_mail) {
-        email.sendKeys(e_mail);
+    public RegistrationStepOne writeName(String nameStr) {
+        name.sendKeys(nameStr);
+        return this;
+    }
+
+    public RegistrationStepOne writePatronymic(String patronymicStr) {
+        patronymic.sendKeys(patronymicStr);
+        return this;
+    }
+
+    public RegistrationStepOne writeBirthday(String birthdayStr) {
+        birthday.sendKeys(birthdayStr);
+        return this;
+    }
+
+    public RegistrationStepOne writeBirthPlace(String birthPlaceStr) {
+        birthPlace.sendKeys(birthPlaceStr);
+        return this;
+    }
+
+    public RegistrationStepOne writePassportSeries(String passportSeriesStr) {
+        passportSeries.sendKeys(passportSeriesStr);
+        return this;
+    }
+
+    public RegistrationStepOne writePassportNumber(String passportNumberStr) {
+        passportNumber.sendKeys(passportNumberStr);
+        return this;
+    }
+
+    public RegistrationStepOne writepassportCode(String passportCodeStr) {
+        passportCode.sendKeys(passportCodeStr);
+        return this;
+    }
+
+    public RegistrationStepOne writepassportDate(String passportDateStr) {
+        passportDate.sendKeys(passportDateStr);
+        return this;
+    }
+
+    public RegistrationStepOne writeaddress(String addressStr) {
+        address.sendKeys(addressStr);
         return this;
     }
 
     public RegistrationStepOne clickEntryButton() {
-        neatBTN.click();
+        nextBTN.click();
         return this;
     }
 }
