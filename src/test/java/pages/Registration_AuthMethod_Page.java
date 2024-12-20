@@ -6,11 +6,11 @@ import ru.yandex.qatools.htmlelements.element.Button;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class RegistrationAuthMethodPage {
-    private Button registrationBTN = new Button($(By.xpath("//*[@id=\"step\"]/div[2]/div/div[2]/div[4]/div[4]/button")));
+public class Registration_AuthMethod_Page {
+    private Button registrationBTN = new Button($(By.xpath("contain")));
 
     @Step("Выбираем стандартную процедуру регистрации по паспорту")
-    public RegistrationAuthMethodPage clickRegistrationBTN() {
+    public Registration_AuthMethod_Page clickRegistrationBTN() {
         registrationBTN.click();
         return this;
     }
