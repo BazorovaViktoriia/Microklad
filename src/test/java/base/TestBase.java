@@ -36,6 +36,7 @@ public class TestBase {
         Configuration.browser = "Chrome";
         Configuration.browserCapabilities = options;
         Configuration.driverManagerEnabled = true;
+        Configuration.holdBrowserOpen = true;
         open(ConfigurationManager.configuration().url());
         //WebDriverRunner.getWebDriver().manage().window().maximize();
     }

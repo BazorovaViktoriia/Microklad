@@ -2,12 +2,12 @@ package methods;
 
 import base.TestBase;
 import io.qameta.allure.Description;
-import org.openqa.selenium.interactions.Actions;
 import pages.*;
 import properties.ConfigurationManager;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static java.lang.Thread.sleep;
 
 public class Registration extends TestBase {
     private String mail = ConfigurationManager.configuration().e_mail();
@@ -25,13 +25,14 @@ public class Registration extends TestBase {
 
 
     @Description("Проверка регистрации на сайте")
-    public void regPerson() {
+    public void regPerson() throws InterruptedException {
         new MainPage().clickgetMoneyBTN();
         $(byText("Пройти стандартную регистрацию")).click();
         new Registration_step_1_Page()
                 .writePhone(phone)
                 .writeEmail(mail)
                 .clickEntryButton();
+        sleep(1000);
         new Registration_step_2_Page()
                 .writeSurname(surname)
                 .writeName(name)
@@ -39,17 +40,23 @@ public class Registration extends TestBase {
                 .writeBirthday(birthday)
                 .writeBirthPlace(birthplace)
                 .clickEntryButton();
+        sleep(1000);
         new Registration_step_3_Page()
                 .writePassportSeries(passportSeria)
                 .writePassportNumber(passportNumber)
                 .writepassportCode(passportCode)
                 .writepassportDate(passportDate)
-                .writepassportGive()
+                .writePassportGive()
                 .clickButton();
-
+        sleep(1000);
         new Registration_step_4_Page()
                 .writeAddress(address)
+                .clickButton()
                 .clickButton();
+
+        new Registration_step_3_fast()
+               .uploadFirstPhoto()
+               .uploadSecondPhoto();
 
 
     }

@@ -35,8 +35,7 @@ public class Registration_step_1_Page {
         return this;
     }
 
-    public Registration_step_1_Page clickEntryButton() {
+    public void clickEntryButton() {
         nextBTN.click();
-        return this;
     }
 }

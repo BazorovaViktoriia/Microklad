@@ -12,11 +12,10 @@ public class RegistrationTest extends Registration {
     @Owner("Базорова Виктория")
     @Description("Проверка регистрации на сайте")
     @Test
-    public void RegPersonTest() {
+    public void RegPersonTest() throws InterruptedException  {
         new Registration().regPerson();
 
-        Assert.assertEquals("https://shigapova.microklad.ru/registration/step/4",
-                WebDriverRunner.getWebDriver().getCurrentUrl(),
+        Assert.assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), "https://shigapova.microklad.ru/registration/step3fast",
                 "URL не соответствует ожидаемому");
     }
 

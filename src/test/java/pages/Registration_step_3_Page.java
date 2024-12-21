@@ -1,11 +1,14 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static java.lang.Thread.sleep;
 
 public class Registration_step_3_Page {
 
@@ -14,6 +17,7 @@ public class Registration_step_3_Page {
     private TextInput passportCode = new TextInput($(By.name("passport_code")));
     private TextInput passportDate = new TextInput($(By.name("passport_date")));
     private Button nextBTN = new Button($(byText("Продолжить")));
+
 
     public Registration_step_3_Page writePassportSeries(String passportSeriesStr) {
         passportSeries.sendKeys(passportSeriesStr);
@@ -32,17 +36,20 @@ public class Registration_step_3_Page {
 
     public Registration_step_3_Page writepassportDate(String passportDateStr) {
         passportDate.sendKeys(passportDateStr);
+        passportDate.sendKeys(Keys.TAB);
         return this;
     }
 
-    public Registration_step_3_Page writepassportGive() {
-        $(byXpath("/html/body/div[4]/div/section/div[2]/div[2]/div/div/div[2]/div[3]/input")).click();
-        $(byText("ТП № 25 ОУФМС РОССИИ ПО САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛ. В КИРОВСКОМ РАЙОНЕ Г. САНКТ-ПЕТЕРБУРГА")).click();
+    public Registration_step_3_Page writePassportGive() throws InterruptedException {
+
+        sleep(5000);
+        $((byText("ТП № 25 ОУФМС РОССИИ ПО САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛ. В КИРОВСКОМ РАЙОНЕ Г. САНКТ-ПЕТЕРБУРГА")))
+                .should(exist).click();
+
         return this;
     }
 
-    public Registration_step_3_Page clickButton() {
+    public void clickButton() {
         nextBTN.click();
-        return this;
     }
 }
