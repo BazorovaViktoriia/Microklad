@@ -12,13 +12,14 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.refresh;
 import static java.lang.Thread.sleep;
 
 public class Registration_step_3_fast {
     private SelenideElement firstPhoto = $(By.xpath("//*[@id=\"photos\"]/div[2]/div[1]/form/div/input"));
     private SelenideElement secondPhoto = $(By.xpath("//*[@id=\"photos\"]/div[2]/div[3]/form/div/input"));
     private Button nextBTN = new Button($(byText("Продолжить")));
-    private Button bankAccount = new Button($(byXpath("//*[@id=\"step3\"]/div[3]/div[2]/div")));
+    private Button bankAccount = new Button($(byId("sbp")));
     private TextInput bankName = new TextInput($(byClassName("select2-search__field")));
 
     SelenideElement slider = $("#sum_slider");  // Локатор слайдера
@@ -59,13 +60,12 @@ public class Registration_step_3_fast {
 
         $((byText("Банк Венец")))
                 .should(exist).click();
-
-        $((byClassName("tinkoff-sbp-btn"))).click(); // красная кнопка Добавить
-
-        // $((byClassName("select2-search__field")))                .should(exist).click();
         sleep(5000);
+        $((byText("Добавить"))).click(); // красная кнопка Добавить
+        sleep(5000);
+
         $((byText("Счет СБП в Банк Венец")))
-                .should(exist).click();
+               .should(exist).click();
 
         return this;
     }
