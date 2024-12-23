@@ -22,6 +22,7 @@ public class Registration extends TestBase {
     private String passportCode = ConfigurationManager.configuration().passportCode();
     private String passportDate = ConfigurationManager.configuration().passportDate();
     private String address = ConfigurationManager.configuration().address();
+    private String bank = ConfigurationManager.configuration().bank();
 
 
     @Description("Проверка регистрации на сайте")
@@ -55,9 +56,17 @@ public class Registration extends TestBase {
                 .clickButton();
 
         new Registration_step_3_fast()
-               .uploadFirstPhoto()
-               .uploadSecondPhoto();
+                .uploadFirstPhoto()
+                .uploadSecondPhoto()
+                .moveSliderWithKeys()
+                .clickBankAccount()
+                .addBankAccount(bank)
+                .clickButton();
 
+        new Registration_step_4_sbp_Page()
+                .getAgreement()
+                .getSms() //Добавить обработку смс
+                .getCredit();
 
     }
 

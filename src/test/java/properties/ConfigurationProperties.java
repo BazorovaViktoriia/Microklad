@@ -41,4 +41,7 @@ public interface ConfigurationProperties extends Config {
     @Config.Key("address")
     String address();
 
+    @Config.Key("bank")
+    String bank();
+
 }
