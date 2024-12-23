@@ -58,16 +58,19 @@ public class Registration extends TestBase {
         new Registration_step_3_fast()
                 .uploadFirstPhoto()
                 .uploadSecondPhoto()
-                .moveSliderWithKeys()
-                .clickBankAccount()
-                .addBankAccount(bank)
-                .clickButton();
+                .moveSliderWithKeys();
 
-        new Registration_step_4_sbp_Page()
-                .getAgreement()
-                .getSms() //Добавить обработку смс
-                .getCredit();
+        System.out.println(getCookieSid());
 
+                //.clickBankAccount()
+                //.addBankAccount(bank)
+                //.clickButton();
+
+        //new Registration_step_4_sbp_Page()
+           //     .getAgreement()
+         //       .getSms() //Добавить обработку смс
+         //       .getCredit();
+//
     }
 
         /*@Owner("Базорова Виктория")

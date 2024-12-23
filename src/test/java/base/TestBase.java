@@ -5,7 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,7 +21,6 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 @Listeners(FailedWatcher.class)
 public class TestBase {
 
-    protected WebDriver driver;
 
     @BeforeMethod
     public void createDriver() {
@@ -38,7 +37,11 @@ public class TestBase {
         Configuration.driverManagerEnabled = true;
         Configuration.holdBrowserOpen = true;
         open(ConfigurationManager.configuration().url());
-        //WebDriverRunner.getWebDriver().manage().window().maximize();
+    }
+
+    public String getCookieSid() {
+        Cookie cookie = WebDriverRunner.getWebDriver().manage().getCookieNamed("sid");
+        return cookie.getValue();
     }
 
     @AfterMethod
