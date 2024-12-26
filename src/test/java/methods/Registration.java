@@ -55,8 +55,6 @@ public class Registration extends TestBase {
                 .clickButton()
                 .clickButton();
 
-        System.out.println(getCookieSid());
-
         new Registration_step_3_fast()
                 .uploadFirstPhoto()
                 .uploadSecondPhoto()
