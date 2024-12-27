@@ -1,16 +1,13 @@
 package properties;
 import org.aeonbits.owner.Config;
 
-@Config.Sources("file:./src/test/resources/application.properties")
+@Config.Sources({
+        "file:./src/test/resources/application.properties",
+        "file:./src/test/resources/application-test.properties"
+})
 public interface ConfigurationProperties extends Config {
     @Config.Key("url")
     String url();
-
-    @Config.Key("reg_type")
-    String reg_type();
-
-    @Config.Key("reg_step1")
-    String reg_step1();
 
     @Config.Key("e_mail")
     String e_mail();
@@ -44,10 +41,12 @@ public interface ConfigurationProperties extends Config {
     @Config.Key("bank")
     String bank();
 
-    @Config.Key("user")
-    String user();
+    @Config.Key("db.url")
+    String dbUrl();
 
-    @Config.Key("password")
-    String password();
+    @Config.Key("db.user")
+    String dbUser();
 
+    @Config.Key("db.password")
+    String dbPassword();
 }
