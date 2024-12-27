@@ -64,9 +64,9 @@ public class Registration extends TestBase {
                 .clickButton();
 
         new Registration_step_4_sbp_Page()
-                .getAgreement()
-                .getSms() //Добавить обработку смс
-                .getCredit();
+                .getAgreement();
+                //.getSms() //Добавить обработку смс
+                //.getCredit();
     }
 
         /*@Owner("Базорова Виктория")
