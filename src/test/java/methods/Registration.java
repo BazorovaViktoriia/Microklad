@@ -64,9 +64,10 @@ public class Registration extends TestBase {
                 .clickButton();
 
         new Registration_step_4_sbp_Page()
-                .getAgreement();
-                //.getSms() //Добавить обработку смс
-                //.getCredit();
+                .getAgreement()
+                .getUSerID();
+        //.getSms() //Добавить обработку смс
+        //.getCredit();
     }
 
         /*@Owner("Базорова Виктория")
@@ -91,12 +92,4 @@ public class Registration extends TestBase {
                     .writePatronymic(patronymic);
 
         } */
-
-    // @Step("Заполняем форму Контактные данные")
-    //public Authorization entranceByMail() throws Exception {
-    //  authoPage.writePhoneNumber(phone).
-    //         writeEmail(mail);
-    // sleep(100);
-    //  return this;
-    //}
 }

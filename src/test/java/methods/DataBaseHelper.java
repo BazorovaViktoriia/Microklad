@@ -5,9 +5,9 @@ import properties.ConfigurationManager;
 import java.sql.*;
 
 public class DataBaseHelper {
-    private static final String URL = ConfigurationManager.configuration().dbUrl();
-    private static final String USER = ConfigurationManager.configuration().dbUser();
-    private static final String PASSWORD = ConfigurationManager.configuration().dbPassword();
+    private static final String URL = "jdbc:mysql://62.109.5.2:3306/mk_online";
+    private static final String USER = "shigapova";
+    private static final String PASSWORD = "shigapova";
 
     public static ResultSet executeQueryWithParameter(String query, String parameter) {
        System.out.println("Подключаюсь к бд");

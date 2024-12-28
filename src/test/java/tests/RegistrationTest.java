@@ -15,15 +15,7 @@ public class RegistrationTest extends Registration {
     public void RegPersonTest() throws InterruptedException  {
         new Registration().regPerson();
 
-        Assert.assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), "https://shigapova.microklad.ru/registration/step3fast",
+        Assert.assertEquals(WebDriverRunner.getWebDriver().getCurrentUrl(), "https://shigapova.microklad.ru/registration/step4sbp",
                 "URL не соответствует ожидаемому");
     }
-
-    // @Step("Заполняем форму Контактные данные")
-    //public Authorization entranceByMail() throws Exception {
-    //  authoPage.writePhoneNumber(phone).
-    //         writeEmail(mail);
-    // sleep(100);
-    //  return this;
-    //}
 }
