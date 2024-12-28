@@ -3,6 +3,7 @@ import org.aeonbits.owner.Config;
 
 @Config.Sources({
         "file:./src/test/resources/application.properties",
+        "file:./src/test/resources/application-login.properties",
         "file:./src/test/resources/application-test.properties"
 })
 public interface ConfigurationProperties extends Config {
@@ -49,4 +50,10 @@ public interface ConfigurationProperties extends Config {
 
     @Config.Key("db.password")
     String dbPassword();
+
+    @Config.Key("telephone")
+    String telephone();
+
+    @Config.Key("passwordLK")
+    String passwordLK();
 }

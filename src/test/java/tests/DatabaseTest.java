@@ -17,7 +17,7 @@ public class DatabaseTest extends UsersCookie {
 
     @Test
     public void fetchUserIDFromDatabase() {
-        new MainPage().clickgetMoneyBTN();
+        new MainPage().clickGetMoneyBTN();
         $(byText("Пройти стандартную регистрацию")).click();
         new Registration_step_1_Page()
                 .writePhone(phone);

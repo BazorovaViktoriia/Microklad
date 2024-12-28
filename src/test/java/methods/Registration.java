@@ -27,7 +27,7 @@ public class Registration extends TestBase {
 
     @Description("Проверка регистрации на сайте")
     public void regPerson() throws InterruptedException {
-        new MainPage().clickgetMoneyBTN();
+        new MainPage().clickGetMoneyBTN();
         $(byText("Пройти стандартную регистрацию")).click();
         new Registration_step_1_Page()
                 .writePhone(phone)
