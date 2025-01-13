@@ -66,6 +66,14 @@
             <version>2.8</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.htmlelements/htmlelements-java -->
         <dependency>
             <groupId>ru.yandex.qatools.htmlelements</groupId>
