@@ -17,8 +17,8 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class MainPage {
 
-    WebElement getMoneyBTN = $(By.xpath("/html/body/div[4]/div/section/div[2]/form/div/div[2]/button"));
-    WebElement loginLK = $(byText("Войти в личный кабинет"));
+    private WebElement getMoneyBTN = $(By.xpath("/html/body/div[4]/div/section/div[2]/form/div/div[2]/button"));
+    private WebElement loginLK = $(byText("Войти в личный кабинет"));
 
     public void clickGetMoneyBTN() {
         getMoneyBTN.click();
